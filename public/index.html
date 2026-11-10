@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronicat | Dirección Ejecutiva & Rudy Greyrat (CEO)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER & NAVEGACIÓN SUPERIOR -->
+  <header class="app-topbar">
+    <div class="topbar-brand">
+      <div class="ceo-avatar-badge">
+        <img src="rudy.png" alt="Rudy Greyrat" class="topbar-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Rudy+Greyrat&background=f59e0b&color=000'">
+        <span class="avatar-ring"></span>
+      </div>
+      <div>
+        <div class="brand-title-wrap">
+          <h1 class="brand-title">ELECTRONICAT <span class="brand-pill ceo-pill">CEO & Dirección</span></h1>
+          <span class="live-dot" title="Micro-agente activo 24/7"></span>
+        </div>
+        <p class="brand-sub">Rudeus (Rudy) Greyrat &bull; Estratega Central & Comando Ejecutivo</p>
+      </div>
+    </div>
+
+    <!-- PESTAÑAS DE NAVEGACIÓN PRINCIPALES -->
+    <nav class="nav-tabs" aria-label="Secciones Ejecutivas">
+      <button class="nav-tab active" data-view="view-resumen">
+        <span class="tab-icon">📊</span> Resumen & KPIs
+      </button>
+      <button class="nav-tab" data-view="view-kanban">
+        <span class="tab-icon">💼</span> Comando de Trabajos
+      </button>
+      <button class="nav-tab" data-view="view-graficos">
+        <span class="tab-icon">📈</span> Gráficos & Métricas
+      </button>
+      <button class="nav-tab" data-view="view-auditorias">
+        <span class="tab-icon">💡</span> Sugerencias por Área
+      </button>
+      <button class="nav-tab" data-view="view-anteproyectos">
+        <span class="tab-icon">🚀</span> Planes & Anteproyectos
+      </button>
+    </nav>
+
+    <!-- ACCIONES RÁPIDAS -->
+    <div class="topbar-actions">
+      <span class="rescue-tag" id="top-rescue-tag">🛡️ Modo Rescate & Escalamiento</span>
+      <select id="user-select" class="user-dropdown" title="Usuario activo">
+        <option value="Ale" selected>👤 Ale (Líder Taller)</option>
+        <option value="Lucas">👤 Lucas (Socio)</option>
+      </select>
+      <button class="btn-primary" id="btn-open-modal-job">
+        <span>➕</span> Nuevo Trabajo
+      </button>
+      <button class="btn-secondary" id="btn-open-modal-anteproyecto" title="Crear nueva idea o anteproyecto">
+        <span>💡</span> Nueva Idea
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL DE PANTALLAS -->
+  <main class="main-content">
+
+    <!-- ==============================================
+         VISTA 1: RESUMEN EJECUTIVO & KPIS
+         ============================================== -->
+    <section id="view-resumen" class="view-section active">
+      <!-- BANNER DE FOCO Y VISIÓN ESTRATÉGICA -->
+      <div class="strategy-banner">
+        <div class="strategy-content">
+          <div class="strategy-tag">⚡ PRIORIDAD MÁXIMA DEL CEO (TEORÍA DE RESTRICCIONES)</div>
+          <h2 class="strategy-title" id="banner-focus-title">Entrega de Tableros 24s Montmartre y Despegue de Serie de 10 Unidades</h2>
+          <p class="strategy-desc" id="banner-focus-desc">Subordinar todo el taller al cuello de botella técnico. No dispersar horas en trabajos no urgentes si no generan caja en menos de 7 días.</p>
+        </div>
+        <div class="strategy-stats">
+          <div class="mini-stat">
+            <span class="stat-num" id="banner-speed-index">88%</span>
+            <span class="stat-lbl">Velocidad Operativa</span>
+          </div>
+          <div class="mini-stat">
+            <span class="stat-num" id="banner-pipeline-val">$3.86M</span>
+            <span class="stat-lbl">Pipeline Activo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID DE TARJETAS KPI -->
+      <div class="kpi-grid">
+        <div class="kpi-card gold">
+          <div class="kpi-header">
+            <span class="kpi-label">TRABAJOS ACTIVOS</span>
+            <span class="kpi-icon">⚡</span>
+          </div>
+          <div class="kpi-value" id="kpi-active-jobs">6</div>
+          <p class="kpi-foot" id="kpi-active-sub">Órdenes en ejecución y taller</p>
+        </div>
+
+        <div class="kpi-card cyan">
+          <div class="kpi-header">
+            <span class="kpi-label">PIPELINE TOTAL EN CURSO</span>
+            <span class="kpi-icon">💰</span>
+          </div>
+          <div class="kpi-value" id="kpi-pipeline">$3.860.000 ARS</div>
+          <p class="kpi-foot">Presupuestos aprobados en fábrica</p>
+        </div>
+
+        <div class="kpi-card warning">
+          <div class="kpi-header">
+            <span class="kpi-label">CUELLO DE BOTELLA CRÍTICO</span>
+            <span class="kpi-icon">🛑</span>
+          </div>
+          <div class="kpi-value kpi-text-sm" id="kpi-bottleneck">Ensamble RF 24s</div>
+          <p class="kpi-foot" id="kpi-bottleneck-detail">Subordinación activa de taller</p>
+        </div>
+
+        <div class="kpi-card emerald">
+          <div class="kpi-header">
+            <span class="kpi-label">TASA DE CUMPLIMIENTO</span>
+            <span class="kpi-icon">🎯</span>
+          </div>
+          <div class="kpi-value" id="kpi-completion-rate">94%</div>
+          <p class="kpi-foot" id="kpi-throughput-foot">12 órdenes despachadas este mes</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE 2 COLUMNAS: TRABAJOS DE MÁXIMA PRIORIDAD & DIRECTIVAS EJECUTIVAS -->
+      <div class="summary-columns-grid">
+        <!-- Columna Izquierda: Trabajos Críticos Inmediatos -->
+        <div class="content-panel">
+          <div class="panel-header">
+            <div class="panel-title-box">
+              <span class="panel-icon">🔥</span>
+              <h3 class="panel-title">Trabajos Críticos & En Curso</h3>
+            </div>
+            <button class="btn-text-action" id="btn-go-kanban">Ir al Comando Kanban &rarr;</button>
+          </div>
+          <div class="jobs-compact-list" id="summary-jobs-list">
+            <!-- Renderizado dinámicamente -->
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Directivas del CEO y Estado de Áreas -->
+        <div class="content-panel">
+          <div class="panel-header">
+            <div class="panel-title-box">
+              <span class="panel-icon">📢</span>
+              <h3 class="panel-title">Directivas Recientes del CEO</h3>
+            </div>
+            <button class="btn-text-action" id="btn-open-modal-directive">➕ Emitir Directiva</button>
+          </div>
+          <div class="directives-list" id="summary-directives-list">
+            <!-- Renderizado dinámicamente -->
+          </div>
+
+          <!-- Radar Rápido de Áreas -->
+          <div class="areas-quick-radar">
+            <h4 class="radar-title">Semáforo de Departamentos</h4>
+            <div class="radar-badges-grid" id="summary-radar-badges">
+              <!-- Renderizado dinámicamente -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VISTA 2: COMANDO DE TRABAJOS (CEO KANBAN)
+         ============================================== -->
+    <section id="view-kanban" class="view-section">
+      <!-- BARRA DE HERRAMIENTAS Y FILTROS KANBAN -->
+      <div class="kanban-toolbar">
+        <div class="toolbar-left">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="kanban-search" placeholder="Buscar por cliente, título o agente...">
+          </div>
+          <select id="filter-category" class="filter-dropdown">
+            <option value="all">Todas las Categorías</option>
+            <option value="Hardware & Domótica">Hardware & Domótica</option>
+            <option value="Software & Firmware">Software & Firmware</option>
+            <option value="Hardware & Escala">Hardware & Escala</option>
+            <option value="Servicio Técnico">Servicio Técnico</option>
+            <option value="Marketing & Ventas">Marketing & Ventas</option>
+            <option value="Instalaciones & Campo">Instalaciones & Campo</option>
+          </select>
+          <select id="filter-priority" class="filter-dropdown">
+            <option value="all">Todas las Prioridades</option>
+            <option value="critica">Crítica (Inmediata)</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn-primary" id="btn-kanban-new-job">
+            <span>➕</span> Nuevo Trabajo
+          </button>
+        </div>
+      </div>
+
+      <!-- TABLERO KANBAN DE 4 COLUMNAS -->
+      <div class="kanban-board">
+        <!-- Columna 1: En Cola -->
+        <div class="kanban-col" data-col="cola">
+          <div class="col-header col-queue">
+            <div class="col-title-wrap">
+              <span class="col-dot dot-queue"></span>
+              <h3 class="col-name">EN COLA / BACKLOG</h3>
+            </div>
+            <span class="col-badge" id="count-cola">0</span>
+          </div>
+          <div class="col-cards-container" id="kanban-cards-cola"></div>
+        </div>
+
+        <!-- Columna 2: En Progreso -->
+        <div class="kanban-col" data-col="en_progreso">
+          <div class="col-header col-progress">
+            <div class="col-title-wrap">
+              <span class="col-dot dot-progress"></span>
+              <h3 class="col-name">EN PROGRESO / TALLER</h3>
+            </div>
+            <span class="col-badge" id="count-en_progreso">0</span>
+          </div>
+          <div class="col-cards-container" id="kanban-cards-en_progreso"></div>
+        </div>
+
+        <!-- Columna 3: Cuello de Botella / Bloqueado -->
+        <div class="kanban-col" data-col="bloqueado">
+          <div class="col-header col-blocked">
+            <div class="col-title-wrap">
+              <span class="col-dot dot-blocked"></span>
+              <h3 class="col-name">BLOQUEO / CUELLO BOTELLA</h3>
+            </div>
+            <span class="col-badge" id="count-bloqueado">0</span>
+          </div>
+          <div class="col-cards-container" id="kanban-cards-bloqueado"></div>
+        </div>
+
+        <!-- Columna 4: Completado / Cobrado -->
+        <div class="kanban-col" data-col="completado">
+          <div class="col-header col-done">
+            <div class="col-title-wrap">
+              <span class="col-dot dot-done"></span>
+              <h3 class="col-name">COMPLETADO & ENTREGADO</h3>
+            </div>
+            <span class="col-badge" id="count-completado">0</span>
+          </div>
+          <div class="col-cards-container" id="kanban-cards-completado"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VISTA 3: GRÁFICOS & MÉTRICAS ESTRATÉGICAS
+         ============================================== -->
+    <section id="view-graficos" class="view-section">
+      <!-- STRIP SUPERIOR ANALÍTICO -->
+      <div class="charts-top-strip">
+        <div class="chart-box-kpi">
+          <span class="box-label">CAPACIDAD DE PRODUCCIÓN</span>
+          <strong class="box-value" id="metric-capacity">85% Taller</strong>
+          <p class="box-sub">Ocupación de bancos de ensamble</p>
+        </div>
+        <div class="chart-box-kpi">
+          <span class="box-label">TIEMPO PROMEDIO ENTREGA</span>
+          <strong class="box-value" id="metric-lead-time">14 Días</strong>
+          <p class="box-sub">Desde aprobación hasta campo</p>
+        </div>
+        <div class="chart-box-kpi">
+          <span class="box-label">PRODUCTO ESTRELLA (SERIE 10)</span>
+          <strong class="box-value" id="metric-star-progress">35% Avance</strong>
+          <p class="box-sub">Matrices y PCBs unificadas</p>
+        </div>
+        <div class="chart-box-kpi">
+          <span class="box-label">MARGEN BRUTO PROMEDIO</span>
+          <strong class="box-value" id="metric-margin">68%</strong>
+          <p class="box-sub">Hardware y domótica deportiva</p>
+        </div>
+      </div>
+
+      <!-- GRID DE GRÁFICOS -->
+      <div class="charts-main-grid">
+        <!-- Gráfico 1: Carga por Área -->
+        <div class="chart-panel">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Distribución de Carga por Área</h3>
+              <p class="chart-subtitle">Volumen de presupuesto y horas asignadas</p>
+            </div>
+            <span class="badge-tag">Capacidad</span>
+          </div>
+          <div class="chart-visual" id="chart-area-bars">
+            <!-- Barras generadas por JS -->
+          </div>
+        </div>
+
+        <!-- Gráfico 2: Pipeline por Prioridad -->
+        <div class="chart-panel">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Pipeline por Nivel de Prioridad</h3>
+              <p class="chart-subtitle">Monto total y foco de asignación</p>
+            </div>
+            <span class="badge-tag">Triage</span>
+          </div>
+          <div class="donut-visual-container">
+            <div class="donut-chart-svg" id="donut-priority-chart"></div>
+            <div class="donut-legend" id="donut-priority-legend"></div>
+          </div>
+        </div>
+
+        <!-- Gráfico 3: Roadmap de Serie de 10 Tableros FIBA -->
+        <div class="chart-panel full-width">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Hitos Hacia la Escala: Serie de 10 Tableros FIBA 24s ($2.500.000 ARS)</h3>
+              <p class="chart-subtitle">Ruta crítica de escalamiento técnico e industrial en Catamarca</p>
+            </div>
+            <span class="badge-tag live-badge">Fase Activa</span>
+          </div>
+          <div class="roadmap-timeline" id="roadmap-timeline-container">
+            <!-- Hitos generados por JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VISTA 4: SUGERENCIAS POR ÁREA (AUDITORÍA CEO)
+         ============================================== -->
+    <section id="view-auditorias" class="view-section">
+      <div class="section-intro-card">
+        <div class="intro-icon">💡</div>
+        <div>
+          <h2 class="intro-title">Auditoría Estratégica Continua & Sugerencias de Rudy</h2>
+          <p class="intro-desc">Evaluación en tiempo real de cada uno de los 7 departamentos operativos de Electronicat. Aplicación de la Teoría de Restricciones (TOC) y Lean Startup para destrabar cuellos de botella.</p>
+        </div>
+      </div>
+
+      <!-- GRID DE TARJETAS DE ÁREAS -->
+      <div class="area-audits-grid" id="area-audits-container">
+        <!-- Renderizado dinámicamente -->
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VISTA 5: ANTEPROYECTOS & PLANES DE ACCIÓN (3 FASES)
+         ============================================== -->
+    <section id="view-anteproyectos" class="view-section">
+      <div class="section-intro-card highlight-gold">
+        <div class="intro-icon">🚀</div>
+        <div>
+          <h2 class="intro-title">Protocolo de Planificación Ejecutiva en 3 Fases</h2>
+          <p class="intro-desc">1) Presentación de 5 ideas por la Mesa Ejecutiva &rarr; 2) Selección de 2 anteproyectos con plan de rentabilidad (Mercado Pago / Whop) &rarr; 3) Elección y ejecución del proyecto definitivo.</p>
+        </div>
+      </div>
+
+      <!-- FASE 3: PROYECTO DEFINITIVO EN EJECUCIÓN (CARD HERO) -->
+      <div class="fase3-hero-card" id="fase3-hero-container">
+        <!-- Renderizado dinámicamente -->
+      </div>
+
+      <!-- FASE 2: LOS 2 ANTEPROYECTOS SELECCIONADOS -->
+      <div class="fase2-section">
+        <div class="fase-header">
+          <h3 class="fase-title"><span class="fase-step-num">Fase 2</span> Los 2 Anteproyectos Seleccionados & Planes de Rentabilidad</h3>
+          <span class="fase-pill">Mercado Pago / Whop</span>
+        </div>
+        <div class="anteproyectos-grid" id="fase2-anteproyectos-container">
+          <!-- Renderizado dinámicamente -->
+        </div>
+      </div>
+
+      <!-- FASE 1: BANCO DE LAS 5 IDEAS ESTRATÉGICAS -->
+      <div class="fase1-section">
+        <div class="fase-header">
+          <h3 class="fase-title"><span class="fase-step-num">Fase 1</span> Las 5 Ideas de Negocio & Expansión de Electronicat</h3>
+          <button class="btn-text-action" id="btn-add-idea-modal">➕ Proponer Nueva Idea</button>
+        </div>
+        <div class="ideas-table-container">
+          <table class="ideas-table">
+            <thead>
+              <tr>
+                <th>Idea / Negocio</th>
+                <th>Categoría</th>
+                <th>Puntuación TOC</th>
+                <th>Ingreso Estimado</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="ideas-table-body">
+              <!-- Renderizado dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==============================================
+       CHATBOT FLOTANTE ESTILO MESSENGER (RUDY CEO)
+       ============================================== -->
+
+  <!-- 1. BURBUJA FLOTANTE (CHAT HEAD) -->
+  <aside class="rudy-chat-bubble-container" aria-label="Asistente Rudy CEO">
+    <!-- Toast de Previsualización cuando está minimizado -->
+    <div class="rudy-preview-toast" id="rudy-preview-toast" style="display: none;">
+      <div class="toast-avatar">
+        <img src="rudy.png" alt="Rudy Greyrat">
+      </div>
+      <div class="toast-bubble">
+        <strong class="toast-name">Rudy Greyrat (CEO)</strong>
+        <p class="toast-msg" id="toast-text-preview">Acá estoy atento a cualquier idea o cuello de botella del taller.</p>
+      </div>
+      <button class="btn-toast-close" id="btn-close-toast" title="Cerrar aviso">✕</button>
+    </div>
+
+    <!-- Burbuja Botón -->
+    <button class="rudy-bubble-btn" id="rudy-bubble-btn" title="Charlar con Rudy Greyrat (CEO & Estratega)">
+      <img src="rudy.png" alt="Rudy" class="bubble-avatar">
+      <span class="bubble-status-ring"></span>
+      <!-- Badge de Mensajes Pendientes -->
+      <span class="unread-badge" id="rudy-unread-badge" style="display: none;">0</span>
+    </button>
+  </aside>
+
+  <!-- 2. VENTANA FLOTANTE DEL CHAT (MESSENGER POPUP) -->
+  <section class="rudy-chat-window" id="rudy-chat-window" style="display: none;">
+    <!-- CABECERA FLOTANTE -->
+    <div class="chat-win-header">
+      <div class="header-profile">
+        <div class="win-avatar-box">
+          <img src="rudy.png" alt="Rudy Greyrat">
+          <span class="online-dot"></span>
+        </div>
+        <div class="header-texts">
+          <div class="win-name">Rudy Greyrat <span class="badge-ceo">CEO</span></div>
+          <div class="win-sub">Director General &bull; Estratega de Rescate</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-win-icon" id="btn-toggle-voice" title="Activar/Desactivar lectura de voz">
+          <span id="voice-icon">🔊</span>
+        </button>
+        <button class="btn-win-icon" id="btn-clear-chat" title="Limpiar historial de chat">
+          <span>🗑️</span>
+        </button>
+        <button class="btn-win-icon" id="btn-minimize-chat" title="Minimizar a la burbuja">─</button>
+        <button class="btn-win-icon" id="btn-close-chat" title="Cerrar ventana">✕</button>
+      </div>
+    </div>
+
+    <!-- HILO DE CONVERSACIÓN -->
+    <div class="chat-win-body" id="chat-thread" aria-live="polite">
+      <div class="welcome-box">
+        <p>¡Hola! Soy Rudeus (Rudy) Greyrat. Como Director General estoy acá para evaluar ideas, destrabar cuellos de botella en el taller, coordinar a los 9 agentes y priorizar la generación de caja. ¿Qué tenés en mente?</p>
+        <div class="win-chips">
+          <button class="win-chip" data-prompt="Rudy, tengo una nueva idea de negocio para el taller de Electronicat.">💡 Nueva idea de negocio</button>
+          <button class="win-chip" data-prompt="Rudy, ¿cuál es el cuello de botella crítico que tenemos que destrabar hoy?">🛑 Cuello de botella actual</button>
+          <button class="win-chip" data-prompt="Rudy, presentame el plan de acción para terminar y cobrar el tanteador de Montmartre.">🏀 Plan para Montmartre</button>
+          <button class="win-chip" data-prompt="Rudy, emití una directiva para que Roxy y Nanahoshi aceleren el ensamble de tableros.">📢 Emitir directiva de ensamble</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BARRA DE ENTRADA -->
+    <form class="chat-win-footer" id="chat-form">
+      <button type="button" class="btn-mic" id="btn-mic" title="Hablar con micrófono">🎙️</button>
+      <textarea 
+        id="chat-input" 
+        placeholder="Charlá con Rudy... (Enter para enviar)" 
+        rows="1" 
+        required></textarea>
+      <button type="submit" class="btn-submit-chat" title="Enviar mensaje">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </form>
+  </section>
+
+  <!-- ==============================================
+       MODALES
+       ============================================== -->
+
+  <!-- MODAL: NUEVO TRABAJO / PROYECTO -->
+  <div class="modal-backdrop" id="modal-job" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">➕ Crear Nuevo Trabajo / Orden de Producción</h3>
+        <button class="btn-modal-close" id="btn-close-modal-job">✕</button>
+      </div>
+      <form id="form-new-job" class="modal-form">
+        <div class="form-group">
+          <label>Título del Trabajo *</label>
+          <input type="text" id="job-title" placeholder="Ej: Tableros 24s Básquet Club Olimpia" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cliente / Organización *</label>
+            <input type="text" id="job-client" placeholder="Ej: Club Olimpia" required>
+          </div>
+          <div class="form-group">
+            <label>Categoría</label>
+            <select id="job-category">
+              <option value="Hardware & Domótica">Hardware & Domótica</option>
+              <option value="Software & Firmware">Software & Firmware</option>
+              <option value="Hardware & Escala">Hardware & Escala</option>
+              <option value="Servicio Técnico">Servicio Técnico</option>
+              <option value="Marketing & Ventas">Marketing & Ventas</option>
+              <option value="Instalaciones & Campo">Instalaciones & Campo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Agente Responsable</label>
+            <select id="job-agent">
+              <option value="ag_roxy">Roxy (Taller & Hardware)</option>
+              <option value="ag_nanahoshi">Nanahoshi (Software & Firmware)</option>
+              <option value="ag_ruijerd">Ruijerd (Campo & Obras)</option>
+              <option value="ag_silphy">Silphy (Finanzas & Cobranzas)</option>
+              <option value="ag_eris">Eris (Redes & Marketing)</option>
+              <option value="ag_linia_pursena">Linia & Pursena (Ventas)</option>
+              <option value="ag_norn">Norn (Planificación)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prioridad</label>
+            <select id="job-priority">
+              <option value="critica">🔥 Crítica (Inmediata)</option>
+              <option value="alta" selected>⚡ Alta</option>
+              <option value="media">Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Presupuesto Estimado ($ ARS)</label>
+            <input type="number" id="job-budget" placeholder="Ej: 350000" min="0" step="5000">
+          </div>
+          <div class="form-group">
+            <label>Fecha Límite / Entrega</label>
+            <input type="date" id="job-deadline">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas Estratégicas / Requisitos Clave</label>
+          <textarea id="job-notes" rows="2" placeholder="Detalles de materiales, cobro de seña, etc."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="btn-cancel-job">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar e Iniciar Trabajo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: NUEVA IDEA / ANTEPROYECTO -->
+  <div class="modal-backdrop" id="modal-anteproyecto" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">💡 Proponer Nueva Idea de Expansión (Fase 1)</h3>
+        <button class="btn-modal-close" id="btn-close-modal-anteproyecto">✕</button>
+      </div>
+      <form id="form-new-anteproyecto" class="modal-form">
+        <div class="form-group">
+          <label>Título de la Idea *</label>
+          <input type="text" id="ante-title" placeholder="Ej: Sistema de Turnos y Luces para Pádel" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Categoría</label>
+            <select id="ante-category">
+              <option value="Hardware & Deporte">Hardware & Deporte</option>
+              <option value="Software Recurrente">Software Recurrente (SaaS)</option>
+              <option value="IoT & Automatización">IoT & Automatización</option>
+              <option value="Educación Digital & Whop">Educación Digital & Whop</option>
+              <option value="Servicio Recurrente">Servicio Recurrente</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ingreso Estimado ($ ARS o USD)</label>
+            <input type="text" id="ante-revenue" placeholder="Ej: $600.000 ARS">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción / Justificación Lean</label>
+          <textarea id="ante-desc" rows="3" placeholder="¿Qué problema resuelve, cómo se valida rápido y qué rentabilidad proyecta?"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="btn-cancel-anteproyecto">Cancelar</button>
+          <button type="submit" class="btn-primary">Registrar en Fase 1</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: EMITIR DIRECTIVA RÁPIDA -->
+  <div class="modal-backdrop" id="modal-directive" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">📢 Emitir Directiva Ejecutiva a un Agente</h3>
+        <button class="btn-modal-close" id="btn-close-modal-directive">✕</button>
+      </div>
+      <form id="form-new-directive" class="modal-form">
+        <div class="form-group">
+          <label>Agente Destinatario</label>
+          <select id="dir-agent">
+            <option value="ag_roxy">Roxy (Taller de Electrónica & Hardware)</option>
+            <option value="ag_silphy">Silphy (Finanzas & Cobranzas)</option>
+            <option value="ag_nanahoshi">Nanahoshi (Software & Firmware)</option>
+            <option value="ag_linia_pursena">Linia & Pursena (Ventas & Clientes)</option>
+            <option value="ag_eris">Eris (Redes & Marketing)</option>
+            <option value="ag_ruijerd">Ruijerd (Campo & Obras)</option>
+            <option value="ag_norn">Norn (Planificación & Agenda)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Directiva del CEO *</label>
+          <textarea id="dir-text" rows="3" placeholder="Instrucción clara, plazo y meta esperada..." required></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="btn-cancel-directive">Cancelar</button>
+          <button type="submit" class="btn-primary">Emitir y Notificar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT CLIENTE -->
+  <script src="app.js"></script>
+</body>
+</html>

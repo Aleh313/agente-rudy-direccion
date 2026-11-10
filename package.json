@@ -4,7 +4,10 @@
   "description": "Micro-agente Rudy Greyrat: Dirección Ejecutiva, Triage y Estrategia de Electronicat",
   "main": "agente.js",
   "scripts": {
-    "start": "node agente.js"
+    "start": "node server.js",
+    "server": "node server.js",
+    "agent": "node agente.js",
+    "chat": "node server.js"
   },
   "author": "Ale & Lucas - Electronicat",
   "license": "ISC"

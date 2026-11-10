@@ -1,0 +1,16 @@
+[
+  {
+    "id": "msg_u_1794346403777",
+    "sender": "Ale",
+    "text": "Hola Rudy, soy Ale. �Cu�l es la prioridad de esta semana?",
+    "type": "user",
+    "time": "06:33 p. m."
+  },
+  {
+    "id": "msg_r_1794346406484",
+    "sender": "Rudy Greyrat (CEO)",
+    "text": "¡Hola, Ale! Qué bueno leerte. Acá estamos en el taller, con la mira láser puesta en lo que realmente importa para mantener la caja sana y el prestigio de Electronicat en alto. \n\nSiguiendo estrictamente la Teoría de Restricciones y nuestro modo *wartime*, la prioridad absoluta de esta semana no se negocia y tiene nombre propio: **el Tanteador Principal y los Tableros 24s de Montmartre** (actualmente en un 82% de avance con Roxy al mando). \n\nNo podemos darnos el lujo de dispersar energía. Cada hora hombre y cada recurso técnico disponible en el taller hoy están subordinados a resolver el cuello de botella crítico: **el ensamble final y las pruebas de señal inalámbrica de ese sistema**. Hasta que Montmartre no esté instalado, cobrado y funcionando a la perfección, ninguna otra reparación menor o proyecto secundario frena el flujo principal.\n\nEn segundo lugar, muy de cerca, tenemos que empujar la **Fabricación en Serie de los 10 Tableros FIBA de 24 Segundos** para los clubes regionales de Catamarca y La Rioja. Ese es nuestro producto insignia escalable, el MVP que va a consolidar nuestra tracción comercial este trimestre. Nanahoshi sigue firme con el control de Juventud, y Eris está moviendo los hilos con la campaña digital, pero el foco del taller es monolítico.\n\n¿Cómo estás viendo los números de caja con Silphy? Decime si hay algún frente imprevisto o si querés que reajustemos alguna clavija con el equipo. ¡Estamos para ganar, Ale!",
+    "type": "agent",
+    "time": "06:33 p. m."
+  }
+]

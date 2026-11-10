@@ -1,8 +1,327 @@
 {
   "_agent": "01_rudy_jefe",
   "createdAt": "2026-11-10T19:46:24.586Z",
+  "lastUpdated": "2026-11-10T21:30:00.000Z",
   "systemInfo": {
     "owner": "Ale & Lucas",
-    "company": "Electronicat"
-  }
+    "company": "Electronicat",
+    "location": "Catamarca, Argentina",
+    "ceo": "Rudeus (Rudy) Greyrat",
+    "mode": "Modo Rescate & Escalamiento Operativo",
+    "currentSprint": "Semana 45 - Noviembre 2026",
+    "vision": "Transformar Electronicat en la fábrica tecnológica de referencia en equipamiento deportivo y domótica del NOA."
+  },
+  "kpis": {
+    "activeJobs": 6,
+    "criticalBottleneck": "Ensamble final y pruebas de señal inalámbrica en Tableros 24s (Montmartre)",
+    "speedIndex": 88,
+    "completionRate": 94,
+    "teamThroughput": 12,
+    "totalPipelineValue": 3860000,
+    "deliveredThisMonth": 4
+  },
+  "jobs": [
+    {
+      "id": "job_montmartre_24s",
+      "title": "Tanteador Principal & Tableros 24s Montmartre",
+      "client": "Club Atlético Montmartre",
+      "category": "Hardware & Domótica",
+      "assignedAgent": "ag_roxy",
+      "supportAgents": ["ag_nanahoshi", "ag_ruijerd"],
+      "priority": "critica",
+      "status": "en_progreso",
+      "progress": 82,
+      "budget": 750000,
+      "deadline": "2026-11-15",
+      "notes": "Insignia del taller. Desbloquea liquidez masiva ($750k). Falta calibrar enlace RF inalámbrico y sellado frontal de acrílico.",
+      "checklist": [
+        { "id": "chk_1", "task": "Estructura de chapa y bastidor pintado", "done": true },
+        { "id": "chk_2", "task": "Módulos LED de alto brillo 24s soldados", "done": true },
+        { "id": "chk_3", "task": "Firmware ESP32 y receptor RF probado en banco", "done": true },
+        { "id": "chk_4", "task": "Pruebas de alcance en cancha de básquet", "done": false },
+        { "id": "chk_5", "task": "Entrega, montaje y cobranza final con Silphy", "done": false }
+      ]
+    },
+    {
+      "id": "job_juventud_molinetes",
+      "title": "Sistema de Control de Matrícula y Molinetes",
+      "client": "Club Deportivo Juventud",
+      "category": "Software & Firmware",
+      "assignedAgent": "ag_nanahoshi",
+      "supportAgents": ["ag_ruijerd"],
+      "priority": "alta",
+      "status": "en_progreso",
+      "progress": 70,
+      "budget": 280000,
+      "deadline": "2026-11-20",
+      "notes": "Cobro parcial de $80.000 acreditado. Completar validación QR y base de datos de socios.",
+      "checklist": [
+        { "id": "chk_201", "task": "Diseño de base de datos de socios", "done": true },
+        { "id": "chk_202", "task": "Integración con lector QR y Node.js", "done": true },
+        { "id": "chk_203", "task": "Prueba de estrés de validación en molinete", "done": false }
+      ]
+    },
+    {
+      "id": "job_tableros_serie_10",
+      "title": "Fabricación en Serie de 10 Tableros FIBA 24 Segundos",
+      "client": "Clubes Regionales (Catamarca y La Rioja)",
+      "category": "Hardware & Escala",
+      "assignedAgent": "ag_roxy",
+      "supportAgents": ["ag_linia_pursena", "ag_eris"],
+      "priority": "alta",
+      "status": "en_progreso",
+      "progress": 35,
+      "budget": 2500000,
+      "deadline": "2026-12-10",
+      "notes": "Producto estrella escalable. Estandarizar matrices de corte, PCB unificada y módulos preensamblados.",
+      "checklist": [
+        { "id": "chk_301", "task": "Planos unificados de corte láser", "done": true },
+        { "id": "chk_302", "task": "Diseño de PCB modular de dígitos", "done": true },
+        { "id": "chk_303", "task": "Compra mayorista de componentes", "done": false },
+        { "id": "chk_304", "task": "Campaña de preventa regional con Linia & Pursena", "done": false }
+      ]
+    },
+    {
+      "id": "job_taller_ventiladores",
+      "title": "Mantenimiento y Reparación de Equipos y Ventiladores",
+      "client": "Comercios y Particulares Catamarca",
+      "category": "Servicio Técnico",
+      "assignedAgent": "ag_roxy",
+      "supportAgents": ["ag_linia_pursena"],
+      "priority": "media",
+      "status": "en_progreso",
+      "progress": 65,
+      "budget": 120000,
+      "deadline": "2026-11-14",
+      "notes": "Flujo continuo de caja chica para insumos diarios. Presupuestos automáticos coordinados con Silphy.",
+      "checklist": [
+        { "id": "chk_401", "task": "Recepción y diagnóstico de 6 motores", "done": true },
+        { "id": "chk_402", "task": "Cambio de bujes y capacitores", "done": true },
+        { "id": "chk_403", "task": "Prueba térmica bajo carga y entrega", "done": false }
+      ]
+    },
+    {
+      "id": "job_redes_campaña",
+      "title": "Lanzamiento Campaña Digital Tableros & Servicios",
+      "client": "Electronicat Marca",
+      "category": "Marketing & Ventas",
+      "assignedAgent": "ag_eris",
+      "supportAgents": ["ag_linia_pursena"],
+      "priority": "media",
+      "status": "en_progreso",
+      "progress": 50,
+      "budget": 60000,
+      "deadline": "2026-11-18",
+      "notes": "Videos cortos de TikTok/Reels mostrando las pruebas en el taller y testimonios de clubes.",
+      "checklist": [
+        { "id": "chk_501", "task": "Grabación de video en taller de soldadura", "done": true },
+        { "id": "chk_502", "task": "Edición de reel de impacto de tableros", "done": false },
+        { "id": "chk_503", "task": "Pauta geolocalizada en Catamarca y La Rioja", "done": false }
+      ]
+    },
+    {
+      "id": "job_instalaciones_campo",
+      "title": "Mantenimiento Preventivo de Iluminación y Domótica",
+      "client": "Pádel Catamarca Central",
+      "category": "Instalaciones & Campo",
+      "assignedAgent": "ag_ruijerd",
+      "supportAgents": ["ag_norn"],
+      "priority": "baja",
+      "status": "cola",
+      "progress": 10,
+      "budget": 150000,
+      "deadline": "2026-11-25",
+      "notes": "Visita técnica programada para inspeccionar contactores y temporizadores automáticos.",
+      "checklist": [
+        { "id": "chk_601", "task": "Relevamiento de carga eléctrica", "done": false },
+        { "id": "chk_602", "task": "Presupuesto de tablero estanco", "done": false }
+      ]
+    }
+  ],
+  "anteproyectos": {
+    "fase1_ideas": [
+      {
+        "id": "idea_1",
+        "title": "Serie de 10 Tableros Electrónicos FIBA 24s",
+        "category": "Hardware & Deporte",
+        "selected": true,
+        "score": 9.6,
+        "desc": "Estandarización y venta seriada a clubes del NOA (Catamarca, La Rioja, Santiago del Estero).",
+        "estimatedRevenue": "$2.500.000 ARS"
+      },
+      {
+        "id": "idea_2",
+        "title": "SaaS de Control de Matrícula & Molinetes para Clubes",
+        "category": "Software Recurrente",
+        "selected": true,
+        "score": 9.1,
+        "desc": "Plataforma en la nube con cobro de cuota mensual y hardware QR / RFID integrado.",
+        "estimatedRevenue": "$350.000 ARS / mes"
+      },
+      {
+        "id": "idea_3",
+        "title": "Módulos de Domótica Deportiva (Turnos de Canchas & Luces)",
+        "category": "IoT & Automatización",
+        "selected": false,
+        "score": 7.8,
+        "desc": "Cajas de control que encienden y apagan iluminación de pádel/fútbol sincronizadas con reservas.",
+        "estimatedRevenue": "$400.000 ARS"
+      },
+      {
+        "id": "idea_4",
+        "title": "Kits y Cursos de Reparación Electrónica de Potencia (Whop)",
+        "category": "Educación Digital & Whop",
+        "selected": false,
+        "score": 8.0,
+        "desc": "Monetización digital global de conocimiento de taller mediante membresías y guías en Whop.",
+        "estimatedRevenue": "$300 USD / mes"
+      },
+      {
+        "id": "idea_5",
+        "title": "Abono Corporativo de Mantenimiento Electromecánico",
+        "category": "Servicio Recurrente",
+        "selected": false,
+        "score": 7.2,
+        "desc": "Guardia y mantenimiento preventivo mensual para panaderías, gastronómicos e industrias locales.",
+        "estimatedRevenue": "$500.000 ARS / mes"
+      }
+    ],
+    "fase2_anteproyectos": [
+      {
+        "id": "ante_1",
+        "title": "Tableros Deportivos FIBA 24s (Hardware Escalable)",
+        "status": "definitivo",
+        "paymentGateway": "Mercado Pago & Transferencia Directa",
+        "unitPrice": "$250.000 ARS",
+        "targetUnits": 10,
+        "productionCost": "$95.000 ARS / unidad",
+        "profitMargin": "62%",
+        "leadTime": "21 días",
+        "responsibleAgents": ["ag_roxy", "ag_nanahoshi", "ag_linia_pursena"],
+        "milestones": [
+          "Corte láser de chapa y matrices estándar",
+          "PCB unificada de dígitos con LEDs de alta visibilidad",
+          "Consola inalámbrica de mesa con display OLED",
+          "Manual técnico y packaging protector para flete"
+        ]
+      },
+      {
+        "id": "ante_2",
+        "title": "Software de Control de Clubes & Cuotas Recurrentes",
+        "status": "aprobado",
+        "paymentGateway": "Whop (Membresías) & Mercado Pago Suscripciones",
+        "monthlyFee": "$45.000 ARS / club",
+        "targetClubs": 8,
+        "profitMargin": "85%",
+        "leadTime": "30 días",
+        "responsibleAgents": ["ag_nanahoshi", "ag_eris"],
+        "milestones": [
+          "Panel web responsivo de gestión de socios",
+          "Integración con molinetes físicos y QR dinámico",
+          "Cobro automático de cuota social con webhook",
+          "Piloto en Deportivo Juventud"
+        ]
+      }
+    ],
+    "fase3_proyecto_definitivo": {
+      "selectedId": "ante_1",
+      "title": "Tableros Deportivos FIBA 24s (Hardware Escalable)",
+      "investmentRequired": "$650.000 ARS (en materiales)",
+      "expectedGross": "$2.500.000 ARS",
+      "expectedNet": "$1.550.000 ARS",
+      "executionStart": "2026-11-12",
+      "status": "En Ejecución",
+      "keySuccessFactor": "Finalizar Montmartre para usarlo como video testimonial y disparar la preventa de los 10 tableros."
+    }
+  },
+  "areaAudits": [
+    {
+      "id": "area_taller",
+      "name": "Taller de Electrónica & Domótica",
+      "leadAgent": "Roxy Migurdia (ag_roxy)",
+      "health": "warning",
+      "score": 82,
+      "bottleneck": "Tiempo de calibración manual de placas receptoras RF.",
+      "ceoAdvice": "Estandarizar un banco de pruebas fijo para los receptores de 24s. No soldar cables al aire; usar conectores JST para acelerar el ensamble.",
+      "actionPlan": "Armar un jigg de testeo con LEDs testigos antes del viernes."
+    },
+    {
+      "id": "area_finanzas",
+      "name": "Finanzas & Tesorería",
+      "leadAgent": "Sylphiette (ag_silphy)",
+      "health": "optimal",
+      "score": 95,
+      "bottleneck": "Dependencia del cobro de saldos grandes para cancelar pasivos fijos.",
+      "ceoAdvice": "Excelente disciplina en Modo Rescate. Mantener la regla de 30% a deudas. Presionar el cobro inmediato de Montmartre apenas se haga la prueba de campo.",
+      "actionPlan": "Emitir link de pago anticipado por Mercado Pago o seña del 50% en nuevos pedidos."
+    },
+    {
+      "id": "area_ventas",
+      "name": "Ventas, Atención & Presupuestos",
+      "leadAgent": "Linia & Pursena (ag_linia_pursena)",
+      "health": "warning",
+      "score": 78,
+      "bottleneck": "Tiempo de respuesta en cotizaciones complejas supera las 4 horas.",
+      "ceoAdvice": "Usar plantillas modulares con precios fijos para tableros y service de ventiladores. Automatizar la respuesta inicial con el bot de WhatsApp.",
+      "actionPlan": "Cargar lista de precios 2026 estandarizada en el CRM."
+    },
+    {
+      "id": "area_software",
+      "name": "Desarrollo de Software & Firmware",
+      "leadAgent": "Nanahoshi (ag_nanahoshi)",
+      "health": "optimal",
+      "score": 91,
+      "bottleneck": "Documentación técnica de la API de validación QR para clubes.",
+      "ceoAdvice": "Priorizar la robustez offline: el sistema de molinetes debe funcionar incluso si se corta internet en el club, sincronizando cuando vuelva la conexión.",
+      "actionPlan": "Implementar SQLite local en la Raspberry/mini PC del molinete."
+    },
+    {
+      "id": "area_marketing",
+      "name": "Marketing Digital & Redes",
+      "leadAgent": "Eris Boreas Greyrat (ag_eris)",
+      "health": "warning",
+      "score": 75,
+      "bottleneck": "Poca frecuencia de publicaciones en video mostrando el 'detrás de escena' del taller.",
+      "ceoAdvice": "A la gente le fascina ver el estaño humear, los números LED encendiéndose y el trabajo real en Catamarca. Menos fotos estáticas y más reels de taller.",
+      "actionPlan": "Grabar 3 micro-clips de 15 segundos cada vez que Ale o Roxy terminen de soldar un módulo."
+    },
+    {
+      "id": "area_campo",
+      "name": "Logística & Obras en Campo",
+      "leadAgent": "Ruijerd Superdia (ag_ruijerd)",
+      "health": "optimal",
+      "score": 89,
+      "bottleneck": "Coordinación de horarios de acceso a los estadios y canchas.",
+      "ceoAdvice": "Requerir a los clubes una ventana fija de prueba de al menos 2 horas con las luces de cancha encendidas para medir contraste real de LEDs.",
+      "actionPlan": "Protocolo de checklist de campo firmado por el responsable deportivo del club."
+    },
+    {
+      "id": "area_agenda",
+      "name": "Planificación, Horarios & Agenda",
+      "leadAgent": "Norn Greyrat (ag_norn)",
+      "health": "optimal",
+      "score": 92,
+      "bottleneck": "Superposición entre visitas a campo y horas de concentración en banco de trabajo.",
+      "ceoAdvice": "Blindar las mañanas (08:30 a 13:00) para Deep Work en taller sin interrupciones; visitas a clubes solo de 16:30 en adelante.",
+      "actionPlan": "Notificar a clientes que la atención al público y visitas son exclusivamente por la tarde."
+    }
+  ],
+  "recentDirectives": [
+    {
+      "id": "dir_1",
+      "date": "2026-11-10T17:30:00.000Z",
+      "author": "Rudy Greyrat (CEO)",
+      "targetAgent": "ag_roxy",
+      "directive": "Prioridad absoluta al tanteador de Montmartre. No abrir nuevas reparaciones grandes hasta que el tablero esté en pruebas de campo.",
+      "status": "activa"
+    },
+    {
+      "id": "dir_2",
+      "date": "2026-11-10T16:00:00.000Z",
+      "author": "Rudy Greyrat (CEO)",
+      "targetAgent": "ag_silphy",
+      "directive": "Coordinar cancelación de boleta de luz e informar saldo neto restante a los socios.",
+      "status": "cumplida"
+    }
+  ]
 }
