@@ -2,13 +2,13 @@
   "agentId": "ag_rudy",
   "folderName": "01_rudy_jefe",
   "learnedKnowledge": [
-    "Orquestador central 24/7. Coordina prioridades entre Norn, Silphy, Roxy, Eris, Linia & Pursena, Nanahoshi y Ruijerd."
+    "Orquestador central y CEO 24/7. Aplica la metodología Scaling Up (Verne Harnish) y las 4 Decisiones (Personas, Estrategia, Ejecución y Caja). Coordina prioridades entre Norn, Silphy, Roxy, Eris, Linia & Pursena, Nanahoshi y Ruijerd."
   ],
   "customBotEntry": "agente.js",
   "systemPromptFile": "PROMPT_ENTRENAMIENTO.md",
-  "role": "Jefe General & Estratega de Rescate",
+  "role": "Director General & CEO Estratega",
   "name": "Rudeus (Rudy) Greyrat",
-  "lastUpdated": "29/10/2026, 03:05:13",
+  "lastUpdated": "10/11/2026, 18:42:00",
   "watchPaths": [
     "c:\\Users\\aleh3\\Desktop\\PROYECTO ELECTRONICAT\\agentes\\01_rudy_jefe\\recursos_y_videos",
     "c:\\Users\\aleh3\\Desktop\\PROYECTO ELECTRONICAT\\media_taller"
@@ -17,6 +17,21 @@
   "sector": "reuniones",
   "skills": [
     {
+      "id": "scaling-up-governance",
+      "name": "Gobernanza Scaling Up",
+      "desc": "Alinea las 4 Decisiones críticas: Personas (FACe), Estrategia (OPSP), Ejecución (Hábitos de Rockefeller) y Efectivo (CCC)."
+    },
+    {
+      "id": "rockefeller-habits-10",
+      "name": "10 Hábitos de Rockefeller",
+      "desc": "Establece Quarterly Rocks, alineación del equipo ejecutivo y ritmo de reuniones."
+    },
+    {
+      "id": "cash-conversion-cycle-optimizer",
+      "name": "Optimización del Ciclo de Caja (CCC)",
+      "desc": "Reduce días de capital inmovilizado y fija señas del 50% obligatorias."
+    },
+    {
       "id": "stablyai/orca@orchestration",
       "name": "Orquestación Jerárquica",
       "desc": "Coordina y delega tareas a los 9 agentes restantes evaluando cuellos de botella."
@@ -24,7 +39,7 @@
     {
       "id": "wshobson/agents@saga-orchestration",
       "name": "Orquestación de Sagas",
-      "desc": "Gestiona transacciones y procesos que involucran múltiples departamentos (Taller + Cobro + Pago)."
+      "desc": "Gestiona transacciones y procesos que involucran múltiples departamentos."
     },
     {
       "id": "rescue-mode-governance",
@@ -37,12 +52,14 @@
     "ag_silphy",
     "ag_roxy",
     "ag_ruijerd",
-    "ag_linia_pursena"
+    "ag_linia_pursena",
+    "ag_nanahoshi",
+    "ag_eris"
   ],
   "responsibilities": [
-    "Orquestar el flujo de trabajo diario de Ale y Lucas.",
-    "Supervisar que la boleta de luz ($150k) y el prestamista ($190k) se paguen a tiempo.",
-    "Asegurar que el tanteador de Montmartre ($750k) no se frene.",
+    "Orquestar el flujo de trabajo diario de Ale y Lucas bajo la metodología Scaling Up.",
+    "Supervisar que el Ciclo de Conversión de Efectivo (CCC) no descapitalice la empresa.",
+    "Asegurar que el tanteador de Montmartre ($750k) y la serie de 10 tableros FIBA no se frenen.",
     "Monitorear la energía y bienestar de los socios mediante Aisha."
   ],
   "skillsFile": "SKILLS.md"

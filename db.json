@@ -1,7 +1,7 @@
 {
   "_agent": "01_rudy_jefe",
   "createdAt": "2026-11-10T19:46:24.586Z",
-  "lastUpdated": "2026-11-10T21:30:00.000Z",
+  "lastUpdated": "2026-11-10T21:42:13.878Z",
   "systemInfo": {
     "owner": "Ale & Lucas",
     "company": "Electronicat",
@@ -12,12 +12,12 @@
     "vision": "Transformar Electronicat en la fábrica tecnológica de referencia en equipamiento deportivo y domótica del NOA."
   },
   "kpis": {
-    "activeJobs": 6,
-    "criticalBottleneck": "Ensamble final y pruebas de señal inalámbrica en Tableros 24s (Montmartre)",
+    "activeJobs": 4,
+    "criticalBottleneck": "Operación fluida sin cuellos de botella críticos.",
     "speedIndex": 88,
-    "completionRate": 94,
+    "completionRate": 70,
     "teamThroughput": 12,
-    "totalPipelineValue": 3860000,
+    "totalPipelineValue": 2960000,
     "deliveredThisMonth": 4
   },
   "jobs": [
@@ -27,19 +27,42 @@
       "client": "Club Atlético Montmartre",
       "category": "Hardware & Domótica",
       "assignedAgent": "ag_roxy",
-      "supportAgents": ["ag_nanahoshi", "ag_ruijerd"],
+      "supportAgents": [
+        "ag_nanahoshi",
+        "ag_ruijerd"
+      ],
       "priority": "critica",
-      "status": "en_progreso",
-      "progress": 82,
+      "status": "completado",
+      "progress": 100,
       "budget": 750000,
       "deadline": "2026-11-15",
       "notes": "Insignia del taller. Desbloquea liquidez masiva ($750k). Falta calibrar enlace RF inalámbrico y sellado frontal de acrílico.",
       "checklist": [
-        { "id": "chk_1", "task": "Estructura de chapa y bastidor pintado", "done": true },
-        { "id": "chk_2", "task": "Módulos LED de alto brillo 24s soldados", "done": true },
-        { "id": "chk_3", "task": "Firmware ESP32 y receptor RF probado en banco", "done": true },
-        { "id": "chk_4", "task": "Pruebas de alcance en cancha de básquet", "done": false },
-        { "id": "chk_5", "task": "Entrega, montaje y cobranza final con Silphy", "done": false }
+        {
+          "id": "chk_1",
+          "task": "Estructura de chapa y bastidor pintado",
+          "done": true
+        },
+        {
+          "id": "chk_2",
+          "task": "Módulos LED de alto brillo 24s soldados",
+          "done": true
+        },
+        {
+          "id": "chk_3",
+          "task": "Firmware ESP32 y receptor RF probado en banco",
+          "done": true
+        },
+        {
+          "id": "chk_4",
+          "task": "Pruebas de alcance en cancha de básquet",
+          "done": false
+        },
+        {
+          "id": "chk_5",
+          "task": "Entrega, montaje y cobranza final con Silphy",
+          "done": false
+        }
       ]
     },
     {
@@ -48,7 +71,9 @@
       "client": "Club Deportivo Juventud",
       "category": "Software & Firmware",
       "assignedAgent": "ag_nanahoshi",
-      "supportAgents": ["ag_ruijerd"],
+      "supportAgents": [
+        "ag_ruijerd"
+      ],
       "priority": "alta",
       "status": "en_progreso",
       "progress": 70,
@@ -56,9 +81,21 @@
       "deadline": "2026-11-20",
       "notes": "Cobro parcial de $80.000 acreditado. Completar validación QR y base de datos de socios.",
       "checklist": [
-        { "id": "chk_201", "task": "Diseño de base de datos de socios", "done": true },
-        { "id": "chk_202", "task": "Integración con lector QR y Node.js", "done": true },
-        { "id": "chk_203", "task": "Prueba de estrés de validación en molinete", "done": false }
+        {
+          "id": "chk_201",
+          "task": "Diseño de base de datos de socios",
+          "done": true
+        },
+        {
+          "id": "chk_202",
+          "task": "Integración con lector QR y Node.js",
+          "done": true
+        },
+        {
+          "id": "chk_203",
+          "task": "Prueba de estrés de validación en molinete",
+          "done": false
+        }
       ]
     },
     {
@@ -67,7 +104,10 @@
       "client": "Clubes Regionales (Catamarca y La Rioja)",
       "category": "Hardware & Escala",
       "assignedAgent": "ag_roxy",
-      "supportAgents": ["ag_linia_pursena", "ag_eris"],
+      "supportAgents": [
+        "ag_linia_pursena",
+        "ag_eris"
+      ],
       "priority": "alta",
       "status": "en_progreso",
       "progress": 35,
@@ -75,10 +115,26 @@
       "deadline": "2026-12-10",
       "notes": "Producto estrella escalable. Estandarizar matrices de corte, PCB unificada y módulos preensamblados.",
       "checklist": [
-        { "id": "chk_301", "task": "Planos unificados de corte láser", "done": true },
-        { "id": "chk_302", "task": "Diseño de PCB modular de dígitos", "done": true },
-        { "id": "chk_303", "task": "Compra mayorista de componentes", "done": false },
-        { "id": "chk_304", "task": "Campaña de preventa regional con Linia & Pursena", "done": false }
+        {
+          "id": "chk_301",
+          "task": "Planos unificados de corte láser",
+          "done": true
+        },
+        {
+          "id": "chk_302",
+          "task": "Diseño de PCB modular de dígitos",
+          "done": true
+        },
+        {
+          "id": "chk_303",
+          "task": "Compra mayorista de componentes",
+          "done": false
+        },
+        {
+          "id": "chk_304",
+          "task": "Campaña de preventa regional con Linia & Pursena",
+          "done": false
+        }
       ]
     },
     {
@@ -87,7 +143,9 @@
       "client": "Comercios y Particulares Catamarca",
       "category": "Servicio Técnico",
       "assignedAgent": "ag_roxy",
-      "supportAgents": ["ag_linia_pursena"],
+      "supportAgents": [
+        "ag_linia_pursena"
+      ],
       "priority": "media",
       "status": "en_progreso",
       "progress": 65,
@@ -95,9 +153,21 @@
       "deadline": "2026-11-14",
       "notes": "Flujo continuo de caja chica para insumos diarios. Presupuestos automáticos coordinados con Silphy.",
       "checklist": [
-        { "id": "chk_401", "task": "Recepción y diagnóstico de 6 motores", "done": true },
-        { "id": "chk_402", "task": "Cambio de bujes y capacitores", "done": true },
-        { "id": "chk_403", "task": "Prueba térmica bajo carga y entrega", "done": false }
+        {
+          "id": "chk_401",
+          "task": "Recepción y diagnóstico de 6 motores",
+          "done": true
+        },
+        {
+          "id": "chk_402",
+          "task": "Cambio de bujes y capacitores",
+          "done": true
+        },
+        {
+          "id": "chk_403",
+          "task": "Prueba térmica bajo carga y entrega",
+          "done": false
+        }
       ]
     },
     {
@@ -106,7 +176,9 @@
       "client": "Electronicat Marca",
       "category": "Marketing & Ventas",
       "assignedAgent": "ag_eris",
-      "supportAgents": ["ag_linia_pursena"],
+      "supportAgents": [
+        "ag_linia_pursena"
+      ],
       "priority": "media",
       "status": "en_progreso",
       "progress": 50,
@@ -114,9 +186,21 @@
       "deadline": "2026-11-18",
       "notes": "Videos cortos de TikTok/Reels mostrando las pruebas en el taller y testimonios de clubes.",
       "checklist": [
-        { "id": "chk_501", "task": "Grabación de video en taller de soldadura", "done": true },
-        { "id": "chk_502", "task": "Edición de reel de impacto de tableros", "done": false },
-        { "id": "chk_503", "task": "Pauta geolocalizada en Catamarca y La Rioja", "done": false }
+        {
+          "id": "chk_501",
+          "task": "Grabación de video en taller de soldadura",
+          "done": true
+        },
+        {
+          "id": "chk_502",
+          "task": "Edición de reel de impacto de tableros",
+          "done": false
+        },
+        {
+          "id": "chk_503",
+          "task": "Pauta geolocalizada en Catamarca y La Rioja",
+          "done": false
+        }
       ]
     },
     {
@@ -125,16 +209,26 @@
       "client": "Pádel Catamarca Central",
       "category": "Instalaciones & Campo",
       "assignedAgent": "ag_ruijerd",
-      "supportAgents": ["ag_norn"],
+      "supportAgents": [
+        "ag_norn"
+      ],
       "priority": "baja",
-      "status": "cola",
-      "progress": 10,
+      "status": "completado",
+      "progress": 100,
       "budget": 150000,
       "deadline": "2026-11-25",
       "notes": "Visita técnica programada para inspeccionar contactores y temporizadores automáticos.",
       "checklist": [
-        { "id": "chk_601", "task": "Relevamiento de carga eléctrica", "done": false },
-        { "id": "chk_602", "task": "Presupuesto de tablero estanco", "done": false }
+        {
+          "id": "chk_601",
+          "task": "Relevamiento de carga eléctrica",
+          "done": false
+        },
+        {
+          "id": "chk_602",
+          "task": "Presupuesto de tablero estanco",
+          "done": false
+        }
       ]
     }
   ],
@@ -172,7 +266,7 @@
         "title": "Kits y Cursos de Reparación Electrónica de Potencia (Whop)",
         "category": "Educación Digital & Whop",
         "selected": false,
-        "score": 8.0,
+        "score": 8,
         "desc": "Monetización digital global de conocimiento de taller mediante membresías y guías en Whop.",
         "estimatedRevenue": "$300 USD / mes"
       },
@@ -197,7 +291,11 @@
         "productionCost": "$95.000 ARS / unidad",
         "profitMargin": "62%",
         "leadTime": "21 días",
-        "responsibleAgents": ["ag_roxy", "ag_nanahoshi", "ag_linia_pursena"],
+        "responsibleAgents": [
+          "ag_roxy",
+          "ag_nanahoshi",
+          "ag_linia_pursena"
+        ],
         "milestones": [
           "Corte láser de chapa y matrices estándar",
           "PCB unificada de dígitos con LEDs de alta visibilidad",
@@ -214,7 +312,10 @@
         "targetClubs": 8,
         "profitMargin": "85%",
         "leadTime": "30 días",
-        "responsibleAgents": ["ag_nanahoshi", "ag_eris"],
+        "responsibleAgents": [
+          "ag_nanahoshi",
+          "ag_eris"
+        ],
         "milestones": [
           "Panel web responsivo de gestión de socios",
           "Integración con molinetes físicos y QR dinámico",
