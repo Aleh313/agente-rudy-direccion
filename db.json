@@ -424,5 +424,72 @@
       "directive": "Coordinar cancelación de boleta de luz e informar saldo neto restante a los socios.",
       "status": "cumplida"
     }
-  ]
+  ],
+  "opsp": {
+    "coreValues": [
+      "Ingeniería de Trinchera & Robustez Industrial",
+      "Orgullo & Soberanía Tecnológica Catamarqueña",
+      "Servicio & Cercanía Implacable (<24 hs)",
+      "Disciplina de Caja & Transparencia"
+    ],
+    "corePurpose": "Profesionalizar y modernizar la infraestructura deportiva, comercial y de automatización en Catamarca y el NOA mediante tecnología electrónica robusta, accesible y de desarrollo propio.",
+    "bhag": "2036: Ser la fábrica referente en tecnología deportiva y domótica del norte argentino, equipando a más de 500 estadios y exportando tableros FIBA a países limítrofes.",
+    "profitPerX": "Margen Neto por Tablero Deportivo Instalado (Hardware) / MRR por Club Abonado (SaaS)",
+    "brandPromises": [
+      "Visibilidad Total & Conexión Estable (cero latencia)",
+      "Modularidad & Reparabilidad Local Inmediata",
+      "Soporte Presencial Rápido en Catamarca y La Rioja"
+    ],
+    "threeYearGoals": {
+      "targetYear": "2029",
+      "revenue": "$120.000.000 ARS",
+      "activeBoards": 80,
+      "saasClubs": 35
+    },
+    "oneYearGoals": {
+      "targetYear": "2027",
+      "priorities": [
+        "Serie de 10 Tableros FIBA 24s colocados y cobrados",
+        "Sistema de molinetes en Juventud y Red Star",
+        "Cero pasivos críticos y 3 meses de fondo de reserva operativa"
+      ]
+    },
+    "quarterlyRocks": [
+      {
+        "id": "rock_1",
+        "title": "Entrega & Cobro Tanteador Montmartre ($750.000)",
+        "owner": "ag_roxy",
+        "progress": 82,
+        "status": "en_progreso"
+      },
+      {
+        "id": "rock_2",
+        "title": "Matrices & PCBs Unificadas Serie 10 FIBA",
+        "owner": "ag_nanahoshi",
+        "progress": 35,
+        "status": "en_progreso"
+      },
+      {
+        "id": "rock_3",
+        "title": "Preventa Regional de 4 Tableros con 50% de Seña",
+        "owner": "ag_linia_pursena",
+        "progress": 15,
+        "status": "en_progreso"
+      },
+      {
+        "id": "rock_4",
+        "title": "Validación QR/Offline Deportivo Juventud",
+        "owner": "ag_nanahoshi",
+        "progress": 70,
+        "status": "en_progreso"
+      },
+      {
+        "id": "rock_5",
+        "title": "Saneamiento de Pasivos Críticos de Taller (Luz y Cuotas)",
+        "owner": "ag_silphy",
+        "progress": 100,
+        "status": "completado"
+      }
+    ]
+  }
 }

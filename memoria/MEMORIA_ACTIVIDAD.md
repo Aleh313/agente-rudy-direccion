@@ -25,6 +25,7 @@
 ---
 
 ## 📜 Historial de Decisiones y Log de Modificaciones
+- **[10/11/2026]:** Generación y adopción formal del **OPSP (*One-Page Strategic Plan*) de Electronicat** bajo la metodología *Scaling Up* de Verne Harnish. Definición del BHAG 2036, "Profit per X" de tableros deportivos y las 5 Quarterly Rocks de fin de año.
 - **[10/11/2026]:** Despliegue del Frontend Ejecutivo completo estilo Silphy para Rudy Greyrat (CEO), servidor Express (`PORT 3001`), integración con Gemini API y chatbot flotante persistente.
 - **[10/11/2026]:** Creación del microsistema independiente. Inicialización de `db.json`, `package.json`, `README.md` estandarizado y protocolo de memoria persistente.
 - **[10/11/2026, 06:42:00] Directiva CEO:** Trabajo actualizado: "Tanteador Principal & Tableros 24s Montmartre" -> Estado: completado, Progreso: 100%.
