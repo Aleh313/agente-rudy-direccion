@@ -1,0 +1,49 @@
+{
+  "agentId": "ag_rudy",
+  "folderName": "01_rudy_jefe",
+  "learnedKnowledge": [
+    "Orquestador central 24/7. Coordina prioridades entre Norn, Silphy, Roxy, Eris, Linia & Pursena, Nanahoshi y Ruijerd."
+  ],
+  "customBotEntry": "agente.js",
+  "systemPromptFile": "PROMPT_ENTRENAMIENTO.md",
+  "role": "Jefe General & Estratega de Rescate",
+  "name": "Rudeus (Rudy) Greyrat",
+  "lastUpdated": "29/10/2026, 03:05:13",
+  "watchPaths": [
+    "c:\\Users\\aleh3\\Desktop\\PROYECTO ELECTRONICAT\\agentes\\01_rudy_jefe\\recursos_y_videos",
+    "c:\\Users\\aleh3\\Desktop\\PROYECTO ELECTRONICAT\\media_taller"
+  ],
+  "alwaysOn24x7": true,
+  "sector": "reuniones",
+  "skills": [
+    {
+      "id": "stablyai/orca@orchestration",
+      "name": "Orquestación Jerárquica",
+      "desc": "Coordina y delega tareas a los 9 agentes restantes evaluando cuellos de botella."
+    },
+    {
+      "id": "wshobson/agents@saga-orchestration",
+      "name": "Orquestación de Sagas",
+      "desc": "Gestiona transacciones y procesos que involucran múltiples departamentos (Taller + Cobro + Pago)."
+    },
+    {
+      "id": "rescue-mode-governance",
+      "name": "Gobierno de Modo Rescate",
+      "desc": "Aplica el reparto matemático de emergencia (30% Deudas / 25% Op / 30% Socios / 10% Patr / 5% Inv)."
+    }
+  ],
+  "peers": [
+    "ag_norn",
+    "ag_silphy",
+    "ag_roxy",
+    "ag_ruijerd",
+    "ag_linia_pursena"
+  ],
+  "responsibilities": [
+    "Orquestar el flujo de trabajo diario de Ale y Lucas.",
+    "Supervisar que la boleta de luz ($150k) y el prestamista ($190k) se paguen a tiempo.",
+    "Asegurar que el tanteador de Montmartre ($750k) no se frene.",
+    "Monitorear la energía y bienestar de los socios mediante Aisha."
+  ],
+  "skillsFile": "SKILLS.md"
+}
