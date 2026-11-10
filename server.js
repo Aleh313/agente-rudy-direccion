@@ -344,7 +344,16 @@ app.post('/api/chat', async (req, res) => {
 
   const userTime = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
 
-  // Guardar mensaje del usuario
+  // Cargar historial previo ANTES de guardar el nuevo mensaje para pasar contexto multi-turno
+  const existingHistory = loadChatHistory();
+  const recentHistory = existingHistory.slice(-8);
+  const formattedHistory = recentHistory.length > 0
+    ? recentHistory.map(m => `${m.sender.toUpperCase()} (${m.time || ''}):\n"${m.text}"`).join('\n\n')
+    : '(Inicio de conversación nueva)';
+
+  const lastBotMessage = [...recentHistory].reverse().find(m => m.type === 'agent')?.text || '';
+
+  // Guardar mensaje del usuario en el historial
   appendToChatHistory({
     id: `msg_u_${Date.now()}`,
     sender: userName,
@@ -381,12 +390,16 @@ ${memory.slice(-1200)}
 
 ${contextData}
 
+HISTORIAL INMEDIATO DE LA CONVERSACIÓN CON ${userName.toUpperCase()}:
+${formattedHistory}
+
 INSTRUCCIÓN DE INTERACCIÓN:
 - Estás conversando 1 a 1 con ${userName} (Director y Fundador de Electronicat junto con Lucas).
 - Sos Rudeus (Rudy) Greyrat: líder sereno, extremadamente analítico, estratégico, motivador y protector de la moral y la caja de la empresa.
-- Tenés mentalidad de "Wartime CEO": valorás la velocidad, el foco quirúrgico en el cuello de botella (terminar Montmartre y lanzar la serie de 10 tableros), y la subordinación de tareas secundarias.
+- Tenés mentalidad de "Wartime CEO" y Scaling Up (Verne Harnish): valorás la velocidad, el foco quirúrgico en el cuello de botella (terminar Montmartre y lanzar la serie de 10 tableros), y la subordinación de tareas secundarias.
+- CONTINUIDAD CONVERSACIONAL CRÍTICA: Tenés presente todo lo que se habló en el HISTORIAL INMEDIATO anterior. Si en el turno previo le preguntaste algo o le propusiste una acción y ${userName} te responde afirmativamente (ej: "si lo hagamos", "dale", "avanzá"), NO actúes como si la conversación recién empezara; continúa exactamente el hilo de lo acordado y ejecuta la acción correspondiente.
 - Hablá con un tono cercano, profesional, apasionado por la ingeniería y el crecimiento del taller de Catamarca. Tratás a ${userName} de igual a igual, con admiración por su trabajo técnico.
-- Si ${userName} te propone una nueva idea de proyecto, negocio o directiva para el equipo, analízala con la metodología Lean Startup y Teoría de Restricciones.
+- Si ${userName} te propone una nueva idea de proyecto, negocio o directiva para el equipo, analízala con la metodología Lean Startup, Teoría de Restricciones y Scaling Up.
 - Si detectás que ${userName} te pide crear un nuevo trabajo, cambiar el estado de un trabajo existente o emitir una directiva formal al equipo, agrega AL FINAL de tu respuesta un bloque JSON con la etiqueta exacta \`\`\`ceo_action ... \`\`\` para que el sistema actualice el dashboard y la base de datos de manera inmediata:
 \`\`\`ceo_action
 {
@@ -423,22 +436,44 @@ Si es una charla estratégica normal sin modificaciones directas en la base, NO 
   let replyText = '';
   let detectedAction = null;
 
+  // Sistema de Reintentos Multi-Modelo (para evitar 503 temporales por alta demanda)
   if (geminiAvailable && aiClient) {
-    try {
-      const response = await aiClient.models.generateContent({
-        model: process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite',
-        contents: `${instruction}\n\nMENSAJE DE ${userName.toUpperCase()}:\n"${message.trim()}"`
-      });
-      replyText = response.text || '';
-    } catch (e) {
-      console.warn('⚠️ [Rudy Gemini Fallback]:', e.message);
+    const modelsToTry = [
+      process.env.GEMINI_MODEL,
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash',
+      'gemini-3.5-flash-lite'
+    ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+
+    for (const modelName of modelsToTry) {
+      try {
+        const response = await aiClient.models.generateContent({
+          model: modelName,
+          contents: `${instruction}\n\nNUEVO MENSAJE DE ${userName.toUpperCase()}:\n"${message.trim()}"`
+        });
+        if (response && response.text) {
+          replyText = response.text.trim();
+          break; // Éxito con este modelo
+        }
+      } catch (e) {
+        console.warn(`⚠️ [Rudy Gemini Fallback] Error con modelo ${modelName}:`, e.message);
+      }
     }
   }
 
-  // Fallback heurístico si Gemini no está disponible o falla
+  // Fallback heurístico contextual si todos los modelos de Gemini fallan
   if (!replyText) {
-    const lower = message.toLowerCase();
-    if (lower.includes('idea') || lower.includes('negocio') || lower.includes('proyecto')) {
+    const lower = message.toLowerCase().trim();
+    const isAffirmative = /^(si|dale|hagamoslo|de una|hacelo|avanz[aá]|ok|perfecto|metele|dale gas)\b/i.test(lower);
+
+    if (isAffirmative && lastBotMessage) {
+      if (lastBotMessage.includes('Silphy') || lastBotMessage.includes('proyecci') || lastBotMessage.includes('impresora') || lastBotMessage.includes('cortadora')) {
+        replyText = `¡De una, ${userName}! Ya mismo le paso la directiva a Silphy para que arme la proyección financiera de la cortadora láser y la impresora 3D. Le pido que plantee 3 escenarios de compra en función del margen de los tableros ("Profit per X") y la fecha estimada de recupero, sin comprometer un solo peso de deudas ni de insumos básicos.`;
+      } else {
+        replyText = `¡Excelente, ${userName}! Tomo nota y avanzamos exactamente con lo acordado. Ya mismo alineo al equipo para que no se pierda un solo minuto.`;
+      }
+    } else if (lower.includes('idea') || lower.includes('negocio') || lower.includes('proyecto')) {
       replyText = `Excelente idea, ${userName}. Desde la dirección estratégica tenemos que evaluarla bajo el filtro Lean: ¿cuánto tiempo de taller nos insume y qué tan rápido valida tracción de caja? Cuidemos que no desvíe el foco de los Tableros de Montmartre y la serie de 10 unidades, que es nuestro mayor apalancamiento ahora mismo.`;
     } else if (lower.includes('cuello de botella') || lower.includes('freno') || lower.includes('bloqueo')) {
       replyText = `El cuello de botella principal ahora mismo es el ensamble y calibración de la antena RF de los 24 segundos de Montmartre. Silphy necesita que ese equipo se entregue para cobrar los $750.000. Subordinemos cualquier otra tarea secundaria en el banco de pruebas hasta tenerlo listo.`;
