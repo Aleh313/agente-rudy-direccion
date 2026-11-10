@@ -1,25 +1,31 @@
-# 🧙‍♂️ Agente 01: Rudeus (Rudy) Greyrat
-
-**Rol Principal:** Jefe General de Operaciones, Estratega de Rescate Financiero & Orquestador Multiagente.  
-**Ubicación:** `agentes/01_rudy_jefe/`  
-**Estado:** Activo 24/7 en Servidor Central.
+# 🤖 Micro-Agente Autónomo: Rudy Greyrat
+**Rol Oficial:** Director General, Estratega Central & Moderador de Sala  
+**Repositorio Independiente:** `Aleh313/agente-rudy-jefe`  
+**Ecosistema:** Electronicat (Catamarca, Argentina)
 
 ---
 
 ## 🎯 1. Propósito y Misión Operativa
+Lidera la dirección ejecutiva, triage de prioridades, moderación de debates y orquestación de anteproyectos.
 
-Rudy es el agente director del taller Electrónicat. Su misión es orquestar a los otros 9 agentes para cumplir los objetivos financieros de rescate y crecimiento:
-1. Coordinar prioridades operativas entre la agenda de Norn y la caja de Silphy.
-2. Asegurar que las deudas críticas (Factura de Luz $150.000 del 01/Nov y Deuda con Antonella $190.000 del 07/Nov) se salden a tiempo mediante el cobro de trabajos a clubes locales (Montmartre $750.000 y Juventud Unida $80.000).
-3. Monitorear los cuellos de botella técnicos de Roxy en taller y derivar visitas de campo a Ruijerd.
+Este repositorio es un **microsistema 100% independiente**. Puede clonarse, modificarse y desplegarse de manera aislada sin depender del servidor central monolítico.
 
 ---
 
-## 🤖 2. Directivas para Agentes de IA que Modifiquen este Agente
+## ⚙️ 2. Arquitectura de Archivos y Funcionamiento
+Para que cualquier modelo de IA o desarrollador trabaje en esta carpeta:
 
-- **Lectura Previa Obligatoria:** Consultar [`PROMPT_ENTRENAMIENTO.md`](./PROMPT_ENTRENAMIENTO.md) para conocer el tono analítico, proactivo y protector de Rudy.
-- **Memoria Persistente:** Cada decisión estratégica tomada por Rudy debe reflejarse en [`memoria/MEMORIA_ACTIVIDAD.md`](./memoria/MEMORIA_ACTIVIDAD.md).
-- **Herramientas y Custom Scripts:**
-  - Si agregás automatizaciones de orquestación, colocalas en `scripts_custom/`.
-  - Archivos o diagramas de toma de decisiones van en `recursos_y_videos/`.
-- **Verificación:** Todo cambio en la lógica de `agente.js` debe verificarse en la PC Central de Ale antes de subirlo a la rama `main`.
+- **`db.json`**: Base de datos local y persistente exclusiva de este agente. Gestiona la visión macro, notas de aprendizaje y coordinación general.
+- **`agente.js`**: Lógica de inicialización autónoma, bucle de ejecución y conexión al bus de eventos.
+- **`PROMPT_ENTRENAMIENTO.md`**: Cerebro del agente, bibliografía técnica inyectada y reglas operativas inquebrantables.
+- **`SKILLS.md`**: Capacidades y herramientas específicas asignadas a su rol.
+- **`config.json`**: Metadatos de configuración, sector asignado y pares de comunicación.
+- **`memoria/MEMORIA_ACTIVIDAD.md`**: Registro inmutable de contexto histórico y última mejora implementada.
+
+---
+
+## 🛡️ 3. Reglas de Oro para IAs y Desarrolladores que Modifiquen este Agente
+1. **No mezclar bases de datos:** Este agente solo debe leer y escribir en su propio `db.json` local. Nunca intentes acceder directamente a bases de otros agentes; toda interacción entre agentes se realiza mediante eventos en el bus.
+2. **Respetar la personalidad y rol:** Consulta siempre `PROMPT_ENTRENAMIENTO.md` antes de generar código o respuestas.
+3. **Persistir cada mejora:** Cada vez que resuelvas un bug, agregues una regla o actualices datos, debes registrar la entrada con fecha en `memoria/MEMORIA_ACTIVIDAD.md`.
+4. **Commits atómicos y claros:** Al hacer push a este repositorio, escribe mensajes descriptivos del cambio realizado en el micro-agente.
