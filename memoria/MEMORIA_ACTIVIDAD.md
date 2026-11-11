@@ -25,6 +25,7 @@
 ---
 
 ## 📜 Historial de Decisiones y Log de Modificaciones
+- **[11/11/2026]:** Implementación de la **Versión App Móvil / PWA** (`public/mobile.html`, `public/mobile.css`, `public/mobile.js`, `public/manifest.json`) con navegación inferior, checklist de los **10 Hábitos de Rockefeller** (*Scaling Up* Paso 3) y montaje directo en el servidor central (`/rudy` y `/rudy/mobile`) para acceso 4G/5G desde el celular fuera de casa.
 - **[10/11/2026]:** Generación y adopción formal del **OPSP (*One-Page Strategic Plan*) de Electronicat** bajo la metodología *Scaling Up* de Verne Harnish. Definición del BHAG 2036, "Profit per X" de tableros deportivos y las 5 Quarterly Rocks de fin de año.
 - **[10/11/2026]:** Despliegue del Frontend Ejecutivo completo estilo Silphy para Rudy Greyrat (CEO), servidor Express (`PORT 3001`), integración con Gemini API y chatbot flotante persistente.
 - **[10/11/2026]:** Creación del microsistema independiente. Inicialización de `db.json`, `package.json`, `README.md` estandarizado y protocolo de memoria persistente.

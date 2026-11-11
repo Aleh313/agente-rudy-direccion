@@ -58,8 +58,16 @@
       <button class="btn-secondary" id="btn-open-modal-anteproyecto" title="Crear nueva idea o anteproyecto">
         <span>💡</span> Nueva Idea
       </button>
+      <a href="mobile.html" class="btn-secondary" style="text-decoration: none;" title="Abrir versión App Móvil">
+        <span>📱</span> Móvil
+      </a>
     </div>
   </header>
+  <script>
+    if (window.innerWidth <= 768 && !window.location.search.includes('desktop=1')) {
+      window.location.replace(window.location.pathname.endsWith('/') ? 'mobile.html' : (window.location.pathname.includes('index.html') ? 'mobile.html' : window.location.pathname + '/mobile'));
+    }
+  </script>
 
   <!-- CONTENEDOR PRINCIPAL DE PANTALLAS -->
   <main class="main-content">

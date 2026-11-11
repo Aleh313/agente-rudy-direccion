@@ -1,3 +1,4 @@
+﻿const API_BASE = window.location.pathname.startsWith('/rudy') ? '/rudy/api' : '/api';
 /**
  * ELECTRONICAT - DIRECCIÓN EJECUTIVA & RUDY GREYRAT (CEO)
  * Frontend Client Controller
@@ -78,7 +79,7 @@ function initNavigation() {
 // ==========================================
 async function loadSystemData() {
   try {
-    const res = await fetch('/api/status');
+    const res = await fetch(`${API_BASE}/status`);
     const result = await res.json();
     if (result.ok && result.data) {
       state.data = result.data;
@@ -288,7 +289,7 @@ function createKanbanCard(job) {
 // Acciones de Trabajos
 async function updateJobStatus(jobId, newStatus) {
   try {
-    const res = await fetch(`/api/jobs/${jobId}`, {
+    const res = await fetch(`${API_BASE}/jobs/${jobId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: newStatus })
@@ -315,7 +316,7 @@ async function toggleChecklist(jobId, chkId) {
     const newProgress = Math.round((completedCount / job.checklist.length) * 100);
 
     try {
-      await fetch(`/api/jobs/${jobId}`, {
+      await fetch(`${API_BASE}/jobs/${jobId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ checklist: job.checklist, progress: newProgress })
@@ -330,7 +331,7 @@ async function toggleChecklist(jobId, chkId) {
 async function deleteJob(jobId) {
   if (!confirm('¿Estás seguro de eliminar este trabajo de producción?')) return;
   try {
-    const res = await fetch(`/api/jobs/${jobId}`, { method: 'DELETE' });
+    const res = await fetch(`${API_BASE}/jobs/${jobId}`, { method: 'DELETE' });
     const result = await res.json();
     if (result.ok) {
       addSystemToast('Trabajo eliminado');
@@ -505,7 +506,7 @@ async function requestAreaAudit(areaId, btn) {
   btn.innerHTML = '<span>⏳</span> Analizando...';
 
   try {
-    const res = await fetch('/api/audit-area', {
+    const res = await fetch(`${API_BASE}/audit-area`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ areaId })
@@ -625,7 +626,7 @@ function initModals() {
       };
 
       try {
-        const res = await fetch('/api/jobs', {
+        const res = await fetch(`${API_BASE}/jobs`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -670,7 +671,7 @@ function initModals() {
       };
 
       try {
-        const res = await fetch('/api/anteproyectos', {
+        const res = await fetch(`${API_BASE}/anteproyectos`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -709,7 +710,7 @@ function initModals() {
       const directiveText = document.getElementById('dir-text').value;
 
       try {
-        const res = await fetch('/api/chat', {
+        const res = await fetch(`${API_BASE}/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -779,7 +780,7 @@ function initChatbot() {
     btnClear.addEventListener('click', async () => {
       if (!confirm('¿Deseas limpiar el historial de la conversación con Rudy?')) return;
       try {
-        await fetch('/api/chat-history', { method: 'DELETE' });
+        await fetch(`${API_BASE}/chat-history`, { method: 'DELETE' });
         chatThread.innerHTML = `
           <div class="welcome-box">
             <p>Historial reiniciado. Soy Rudeus (Rudy) Greyrat. Contame cualquier idea o prioridad operativa para el taller.</p>
@@ -838,7 +839,7 @@ function initChatbot() {
     const typingIndicator = showTypingIndicator();
 
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(`${API_BASE}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, userName: state.currentUser })
@@ -883,7 +884,7 @@ function initChatbot() {
 
 async function loadChatHistory() {
   try {
-    const res = await fetch('/api/chat-history');
+    const res = await fetch(`${API_BASE}/chat-history`);
     const result = await res.json();
     if (result.ok && result.history && result.history.length > 0) {
       result.history.forEach(msg => appendMessageToThread(msg, false));

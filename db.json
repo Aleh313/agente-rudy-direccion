@@ -491,5 +491,17 @@
         "status": "completado"
       }
     ]
-  }
+  },
+  "rockefellerHabits": [
+    { "id": "rh_1", "num": 1, "title": "Equipo ejecutivo sano y alineado (Ale, Lucas y agentes)", "done": true },
+    { "id": "rh_2", "num": 2, "title": "Todos alineados con la Prioridad N°1 (The Rock: Montmartre + Serie 10)", "done": true },
+    { "id": "rh_3", "num": 3, "title": "Ritmo de comunicación establecido (Daily Huddle 08:30 y cierre semanal)", "done": true },
+    { "id": "rh_4", "num": 4, "title": "Cada función clave tiene un responsable único (Matriz FACe)", "done": true },
+    { "id": "rh_5", "num": 5, "title": "Recopilación continua de feedback de clubes y clientes", "done": false },
+    { "id": "rh_6", "num": 6, "title": "Datos de mercado y precios de insumos auditados semanalmente", "done": true },
+    { "id": "rh_7", "num": 7, "title": "Valores Núcleo y Propósito vivos en cada obra y tablero", "done": true },
+    { "id": "rh_8", "num": 8, "title": "Estrategia OPSP (BHAG y Profit per X) comprendida por todo el equipo", "done": true },
+    { "id": "rh_9", "num": 9, "title": "Todos los roles tienen métricas numéricas diarias/semanales (KPIs)", "done": false },
+    { "id": "rh_10", "num": 10, "title": "Planes y desempeño visibles en tiempo real en el panel de Rudy", "done": true }
+  ]
 }

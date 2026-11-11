@@ -154,11 +154,12 @@ function recalculateKPIs(dbData) {
 }
 
 // ==========================================
-// RUTAS Y ENDPOINTS DE LA API
+// RUTAS Y ENDPOINTS DE LA API (ROUTER MODULAR)
 // ==========================================
+const router = express.Router();
 
 // 1. Estado completo del sistema ejecutivo de Rudy
-app.get('/api/status', (req, res) => {
+router.get('/status', (req, res) => {
   const dbData = loadDB();
   recalculateKPIs(dbData);
   const memory = loadMemory();
@@ -170,7 +171,7 @@ app.get('/api/status', (req, res) => {
 });
 
 // 2. Gestión de Trabajos / Órdenes (CEO Kanban)
-app.post('/api/jobs', (req, res) => {
+router.post('/jobs', (req, res) => {
   const dbData = loadDB();
   const { title, client, category, assignedAgent, supportAgents, priority, budget, deadline, notes, checklist } = req.body;
 
@@ -206,7 +207,7 @@ app.post('/api/jobs', (req, res) => {
   res.json({ ok: true, job: newJob });
 });
 
-app.patch('/api/jobs/:id', (req, res) => {
+router.patch('/jobs/:id', (req, res) => {
   const dbData = loadDB();
   const job = dbData.jobs.find(j => j.id === req.params.id);
   if (!job) {
@@ -233,7 +234,7 @@ app.patch('/api/jobs/:id', (req, res) => {
   res.json({ ok: true, job });
 });
 
-app.delete('/api/jobs/:id', (req, res) => {
+router.delete('/jobs/:id', (req, res) => {
   const dbData = loadDB();
   const initialLen = dbData.jobs.length;
   dbData.jobs = dbData.jobs.filter(j => j.id !== req.params.id);
@@ -247,7 +248,7 @@ app.delete('/api/jobs/:id', (req, res) => {
 });
 
 // 3. Planes de Acción & Anteproyectos (3 Fases)
-app.post('/api/anteproyectos', (req, res) => {
+router.post('/anteproyectos', (req, res) => {
   const dbData = loadDB();
   dbData.anteproyectos = dbData.anteproyectos || { fase1_ideas: [], fase2_anteproyectos: [], fase3_proyecto_definitivo: {} };
 
@@ -274,7 +275,7 @@ app.post('/api/anteproyectos', (req, res) => {
 });
 
 // 4. Auditoría de Áreas y Solicitud de Consejo de Rudy (CEO)
-app.post('/api/audit-area', async (req, res) => {
+router.post('/audit-area', async (req, res) => {
   const { areaId } = req.body;
   const dbData = loadDB();
   const area = (dbData.areaAudits || []).find(a => a.id === areaId);
@@ -325,18 +326,31 @@ PLAN_ACCION: <texto>`;
 });
 
 // 5. Historial persistente del Chatbot
-app.get('/api/chat-history', (req, res) => {
+router.get('/chat-history', (req, res) => {
   const history = loadChatHistory();
   res.json({ ok: true, history });
 });
 
-app.delete('/api/chat-history', (req, res) => {
+router.delete('/chat-history', (req, res) => {
   saveChatHistory([]);
   res.json({ ok: true, message: 'Historial de chat borrado.' });
 });
 
-// 6. Chat con Rudy Greyrat (CEO Conversacional + Ejecución de Acciones)
-app.post('/api/chat', async (req, res) => {
+// 6. Toggle de Hábitos de Rockefeller (Scaling Up)
+router.patch('/habits/:id', (req, res) => {
+  const dbData = loadDB();
+  dbData.rockefellerHabits = dbData.rockefellerHabits || [];
+  const habit = dbData.rockefellerHabits.find(h => h.id === req.params.id);
+  if (!habit) {
+    return res.status(404).json({ ok: false, error: 'Hábito no encontrado' });
+  }
+  habit.done = req.body.done !== undefined ? Boolean(req.body.done) : !habit.done;
+  saveDB(dbData);
+  res.json({ ok: true, habit });
+});
+
+// 7. Chat con Rudy Greyrat (CEO Conversacional + Ejecución de Acciones)
+router.post('/chat', async (req, res) => {
   const { message, userName = 'Ale' } = req.body;
   if (!message || !message.trim()) {
     return res.status(400).json({ error: 'Mensaje requerido' });
@@ -572,11 +586,25 @@ Si es una charla estratégica normal sin modificaciones directas en la base, NO 
   });
 });
 
-// Iniciar servidor
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`=======================================================`);
-  console.log(`⚡ MICRO-AGENTE 01: RUDY GREYRAT (DIRECTOR GENERAL & CEO)`);
-  console.log(`🏢 Electronicat - Oficina Virtual y Taller Central`);
-  console.log(`🌐 Servidor Web & Panel de Control: http://localhost:${PORT}`);
-  console.log(`=======================================================`);
+// Registrar router en la app express de Rudy
+app.use('/api', router);
+
+// Ruta directa para versión móvil
+app.get('/mobile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'mobile.html'));
 });
+
+// Exportar para integración con el servidor central
+module.exports = { app, router, loadDB, saveDB };
+
+// Iniciar servidor standalone si se ejecuta directamente
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`=======================================================`);
+    console.log(`⚡ MICRO-AGENTE 01: RUDY GREYRAT (DIRECTOR GENERAL & CEO)`);
+    console.log(`🏢 Electronicat - Oficina Virtual y Taller Central`);
+    console.log(`🌐 Desktop: http://localhost:${PORT}`);
+    console.log(`📱 Mobile:  http://localhost:${PORT}/mobile`);
+    console.log(`=======================================================`);
+  });
+}

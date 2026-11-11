@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#070a0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Rudy CEO">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="rudy.png">
+  <title>Rudy CEO | Móvil - Electronicat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <!-- HEADER MÓVIL FIJO -->
+  <header class="mob-header">
+    <div class="mob-brand">
+      <div class="mob-avatar-wrap">
+        <img src="rudy.png" alt="Rudy Greyrat">
+        <span class="mob-online-dot"></span>
+      </div>
+      <div>
+        <div class="mob-title">RUDY CEO <span class="mob-badge">24/7</span></div>
+        <div class="mob-subtitle">Electronicat &bull; Modo Rescate</div>
+      </div>
+    </div>
+
+    <div class="mob-header-actions">
+      <select id="mob-user-select" class="mob-user-pill" aria-label="Usuario activo">
+        <option value="Ale" selected>👤 Ale</option>
+        <option value="Lucas">👤 Lucas</option>
+      </select>
+      <button class="mob-btn-add" id="mob-btn-new-job" title="Nuevo Trabajo">➕</button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR DE VISTAS DESLIZABLES -->
+  <main class="mob-main">
+
+    <!-- ====================================
+         TAB 1: HOY / RESUMEN CEO
+         ==================================== -->
+    <section id="tab-hoy" class="mob-view active">
+      <!-- Foco Crítico TOC -->
+      <div class="mob-focus-card">
+        <div class="focus-tag">⚡ PRIORIDAD N°1 (THE ROCK)</div>
+        <h2 class="focus-title" id="mob-focus-title">Montmartre 24s & Serie 10 Tableros</h2>
+        <p class="focus-desc" id="mob-bottleneck-text">Cargando estado del cuello de botella...</p>
+      </div>
+
+      <!-- KPIs 2x2 -->
+      <div class="mob-kpi-grid">
+        <div class="mob-kpi gold">
+          <span class="kpi-lbl">Trabajos Activos</span>
+          <strong class="kpi-val" id="mob-kpi-active">-</strong>
+        </div>
+        <div class="mob-kpi cyan">
+          <span class="kpi-lbl">Pipeline Total</span>
+          <strong class="kpi-val" id="mob-kpi-pipeline">$-</strong>
+        </div>
+        <div class="mob-kpi emerald">
+          <span class="kpi-lbl">Cumplimiento</span>
+          <strong class="kpi-val" id="mob-kpi-rate">-%</strong>
+        </div>
+        <div class="mob-kpi purple">
+          <span class="kpi-lbl">Velocidad</span>
+          <strong class="kpi-val" id="mob-kpi-speed">-%</strong>
+        </div>
+      </div>
+
+      <!-- Directivas Recientes -->
+      <div class="mob-section-head">
+        <h3>📢 Directivas Activas</h3>
+        <button class="mob-link-btn" id="mob-btn-new-dir">+ Emitir</button>
+      </div>
+      <div id="mob-directives-list" class="mob-stack"></div>
+
+      <!-- Semáforo Rápido de Áreas -->
+      <div class="mob-section-head" style="margin-top: 18px;">
+        <h3>📡 Estado de Departamentos</h3>
+      </div>
+      <div id="mob-radar-list" class="mob-radar-grid"></div>
+    </section>
+
+    <!-- ====================================
+         TAB 2: COMANDO DE TRABAJOS
+         ==================================== -->
+    <section id="tab-trabajos" class="mob-view">
+      <!-- Filtros horizontales swipeables -->
+      <div class="mob-filter-strip" id="mob-job-filters">
+        <button class="filter-chip active" data-status="all">Todos</button>
+        <button class="filter-chip" data-status="en_progreso">⚡ Taller</button>
+        <button class="filter-chip" data-status="bloqueado">🛑 Bloqueados</button>
+        <button class="filter-chip" data-status="cola">📥 En Cola</button>
+        <button class="filter-chip" data-status="completado">✅ Listos</button>
+      </div>
+
+      <div id="mob-jobs-container" class="mob-stack"></div>
+    </section>
+
+    <!-- ====================================
+         TAB 3: OPSP & HÁBITOS DE ROCKEFELLER
+         ==================================== -->
+    <section id="tab-opsp" class="mob-view">
+      <!-- Tarjeta OPSP Scaling Up -->
+      <div class="mob-card-panel gold-border">
+        <div class="panel-tag">SCALING UP &bull; VERNE HARNISH</div>
+        <h3 class="panel-h3">OPSP de Electronicat</h3>
+        <p class="opsp-purpose" id="mob-opsp-purpose">Cargando propósito...</p>
+
+        <div class="opsp-pill-row">
+          <div class="opsp-mini-box">
+            <span>🚀 BHAG 2036</span>
+            <p id="mob-opsp-bhag">-</p>
+          </div>
+          <div class="opsp-mini-box">
+            <span>💎 Profit per X</span>
+            <p id="mob-opsp-profit">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quarterly Rocks -->
+      <div class="mob-section-head">
+        <h3>🪨 Quarterly Rocks (Q4 2026)</h3>
+      </div>
+      <div id="mob-rocks-list" class="mob-stack"></div>
+
+      <!-- 10 Hábitos de Rockefeller -->
+      <div class="mob-section-head" style="margin-top: 20px;">
+        <h3>✅ 10 Hábitos de Rockefeller</h3>
+        <span class="habits-score" id="mob-habits-score">0/10</span>
+      </div>
+      <div id="mob-habits-list" class="mob-stack"></div>
+    </section>
+
+    <!-- ====================================
+         TAB 4: ÁREAS, GRÁFICOS & ANTEPROYECTOS
+         ==================================== -->
+    <section id="tab-areas" class="mob-view">
+      <!-- Gráfico de carga por área -->
+      <div class="mob-card-panel">
+        <h3 class="panel-h3">📈 Carga por Departamento</h3>
+        <div id="mob-chart-bars" class="mob-bars-wrap"></div>
+      </div>
+
+      <!-- Sugerencias y Auditoría de Áreas -->
+      <div class="mob-section-head" style="margin-top: 18px;">
+        <h3>💡 Sugerencias & Auditoría CEO</h3>
+      </div>
+      <div id="mob-audits-list" class="mob-stack"></div>
+
+      <!-- Anteproyectos Fase 2 y 3 -->
+      <div class="mob-section-head" style="margin-top: 18px;">
+        <h3>🚀 Proyecto Definitivo (Fase 3)</h3>
+      </div>
+      <div id="mob-fase3-card" class="mob-card-panel gold-border"></div>
+    </section>
+
+    <!-- ====================================
+         TAB 5: CHAT FULL-SCREEN CON RUDY
+         ==================================== -->
+    <section id="tab-chat" class="mob-view mob-chat-view">
+      <div class="mob-chat-topbar">
+        <span class="chat-status-text">Charla directa 1 a 1 &bull; Memoria activa</span>
+        <div class="chat-tools">
+          <button id="mob-btn-voice" class="chat-tool-btn" title="Voz en alta voz">🔊</button>
+          <button id="mob-btn-clear" class="chat-tool-btn" title="Limpiar chat">🗑️</button>
+        </div>
+      </div>
+
+      <div class="mob-chat-thread" id="mob-chat-thread">
+        <div class="mob-welcome-msg">
+          ¡Hola! Estoy en línea para charlar cualquier idea, destrabar un problema en la calle o coordinar el taller. ¿Qué tenés en mente?
+        </div>
+      </div>
+
+      <!-- Chips rápidos -->
+      <div class="mob-chat-chips">
+        <button class="mob-chip" data-prompt="Rudy, tengo una nueva idea para el taller.">💡 Nueva idea</button>
+        <button class="mob-chip" data-prompt="Rudy, ¿cuál es la prioridad crítica de hoy?">⚡ Prioridad hoy</button>
+        <button class="mob-chip" data-prompt="Rudy, creá un trabajo nuevo para...">➕ Crear trabajo</button>
+      </div>
+
+      <!-- Input bar -->
+      <form class="mob-chat-input-bar" id="mob-chat-form">
+        <button type="button" id="mob-btn-mic" class="mob-mic-btn" title="Dictar por voz">🎙️</button>
+        <textarea id="mob-chat-input" rows="1" placeholder="Escribí o dictá tu idea..." required></textarea>
+        <button type="submit" class="mob-send-btn" title="Enviar">➤</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR (ESTILO APP NATIVA) -->
+  <nav class="mob-bottom-nav" aria-label="Menú Móvil">
+    <button class="nav-btn active" data-tab="tab-hoy">
+      <span class="nav-ico">⚡</span>
+      <span class="nav-txt">Hoy</span>
+    </button>
+    <button class="nav-btn" data-tab="tab-trabajos">
+      <span class="nav-ico">💼</span>
+      <span class="nav-txt">Trabajos</span>
+    </button>
+    <button class="nav-btn" data-tab="tab-opsp">
+      <span class="nav-ico">📋</span>
+      <span class="nav-txt">OPSP</span>
+    </button>
+    <button class="nav-btn" data-tab="tab-areas">
+      <span class="nav-ico">💡</span>
+      <span class="nav-txt">Áreas</span>
+    </button>
+    <button class="nav-btn" data-tab="tab-chat">
+      <span class="nav-ico">💬</span>
+      <span class="nav-txt">Rudy Chat</span>
+    </button>
+  </nav>
+
+  <!-- MODAL RÁPIDO: NUEVO TRABAJO -->
+  <div class="mob-modal-bg" id="mob-modal-job" style="display: none;">
+    <div class="mob-modal-sheet">
+      <div class="sheet-header">
+        <h3>➕ Nuevo Trabajo</h3>
+        <button class="sheet-close" id="mob-close-job">✕</button>
+      </div>
+      <form id="mob-form-job">
+        <input type="text" id="m-job-title" placeholder="Título del trabajo *" required>
+        <input type="text" id="m-job-client" placeholder="Cliente / Club *" required>
+        <div class="sheet-row">
+          <select id="m-job-agent">
+            <option value="ag_roxy">Roxy (Taller)</option>
+            <option value="ag_nanahoshi">Nanahoshi (Dev)</option>
+            <option value="ag_ruijerd">Ruijerd (Campo)</option>
+            <option value="ag_silphy">Silphy (Caja)</option>
+            <option value="ag_linia_pursena">Linia (Ventas)</option>
+            <option value="ag_eris">Eris (Redes)</option>
+          </select>
+          <select id="m-job-priority">
+            <option value="critica">🔥 Crítica</option>
+            <option value="alta" selected>⚡ Alta</option>
+            <option value="media">Media</option>
+          </select>
+        </div>
+        <input type="number" id="m-job-budget" placeholder="Presupuesto ($ ARS)">
+        <textarea id="m-job-notes" rows="2" placeholder="Notas o detalles..."></textarea>
+        <button type="submit" class="sheet-submit">Crear Orden en Taller</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL RÁPIDO: EMITIR DIRECTIVA -->
+  <div class="mob-modal-bg" id="mob-modal-dir" style="display: none;">
+    <div class="mob-modal-sheet">
+      <div class="sheet-header">
+        <h3>📢 Emitir Directiva</h3>
+        <button class="sheet-close" id="mob-close-dir">✕</button>
+      </div>
+      <form id="mob-form-dir">
+        <select id="m-dir-agent">
+          <option value="ag_roxy">Roxy (Taller Hardware)</option>
+          <option value="ag_silphy">Silphy (Finanzas)</option>
+          <option value="ag_nanahoshi">Nanahoshi (Software)</option>
+          <option value="ag_linia_pursena">Linia & Pursena (Ventas)</option>
+          <option value="ag_ruijerd">Ruijerd (Campo)</option>
+          <option value="ag_eris">Eris (Redes)</option>
+        </select>
+        <textarea id="m-dir-text" rows="3" placeholder="Instrucción directa del CEO..." required></textarea>
+        <button type="submit" class="sheet-submit">Enviar Directiva</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="mobile.js"></script>
+</body>
+</html>
